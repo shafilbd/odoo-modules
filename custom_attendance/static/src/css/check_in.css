@@ -1,0 +1,69 @@
+/* main{
+    background-color: rgba(0, 0, 0, 0.3);
+} */
+.attendance .Model{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.attendance .Model .card{
+    max-width: 500px;
+    width: 500px;
+    background-color: #fff;
+}
+.display_none{
+    display: none;
+}
+.o_portal{
+    display: none;
+}
+.back_bg{
+    position: relative;
+    height: 90px;
+    margin: 0;
+    background: linear-gradient(to right bottom, #77717e, #c9a8a9);
+    border-radius: 0.2em 0.2em 0 0;
+    transform: translateY(3px);
+    margin-top: -4px;
+}
+
+.back_bg .profile_pic{
+    position: absolute;
+    left: 42%;
+    bottom: -35px;
+    width: 80px;
+    border-radius: 100%;
+}
+.card{
+    border: 0;
+}
+
+.check_in_btn{
+    padding: 0.8rem 2rem;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background: #fff;
+    color: #4c4c4c;
+}
+.check{
+    margin-top: 15px;
+    font-size: 18px;
+    color: rgba(73, 80, 87, 0.76) !important;
+}
+.check_Out_btn{
+    padding: 0.8rem 2rem;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background-color: #FEC107;
+    border-color: #bf8100;
+    color: #4c4c4c;
+}
+.employeetable tr .working_hours{
+    text-align:  right;
+}
+.employeetable tr td, th{
+    padding: 5px 10px !important;
+}
+.h-32{
+    height: 40px;
+}

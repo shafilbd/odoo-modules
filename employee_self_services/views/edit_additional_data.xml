@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="additional_data">
+        <xpath expr="//div[hasclass('o_portal_my_security')]" position="after">
+        </xpath>
+        <t t-name="HomePageTemplate">
+            <div style="background-color: red;">This is some simple HTML</div>
+        </t>
+    </template>
+</odoo>

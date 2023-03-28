@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="Portal_Data_Update" >
+        <t t-call="portal.portal_layout" >
+            <div class="col-12 mt32">
+                <h3>Update Employee Data</h3>
+            </div>
+            <div class="mt32"></div>
+            <t t-foreach="add" t-as="d">
+                <form id="Portal_data_update" t-attf-action="/my/update" method="POST">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <label for="formGroupExampleInput">Administrator</label>
+                                <select class="form-control" name="depart" id="exampleFormControlSelect1">
+                                    <t t-foreach="dop" t-as="dops" >
+                                        <option  t-att-value="dops.id"><t t-esc="dops.name" /></option>
+                                    </t>
+                                </select>
+<!--                            <input type="text" name="administrator" t-att-value="dop.name" class="form-control" placeholder="Administrator" />-->
+<!--                            <input type="hidden" value="d.user_id" name="id"/>-->
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="formGroupExampleInput">Employe Name</label>
+                            <input type="text" name="name" class="form-control" t-att-value="d.name" placeholder="Name" />
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="formGroupExampleInput">Employe Email</label>
+                            <input type="email" name="email" t-att-value="d.work_email" class="form-control" placeholder="Email" />
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="formGroupExampleInput">Employe Age</label>
+                            <input type="text" name="age" t-att-value="d.age_uid" class="form-control" placeholder="Age" />
+                        </div>
+                        <div class="col-12 mb-3">
+                            <button type="submit" class="btn btn-primary btn_cta">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </t>
+        </t>
+    </template>
+
+
+
+
+</odoo>

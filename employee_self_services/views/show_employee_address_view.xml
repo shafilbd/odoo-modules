@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_employee_form_inherit" model="ir.ui.view">
+            <field name="name">hr.multiaddress.inherit</field>
+             <field name="model">hr.multiaddress</field>
+            <field name="active" invisible="1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='work_email']" position="after">
+                    <field name="multi_addresss_id" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

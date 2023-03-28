@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    inherit_id="hr_attendance.portal_layout"-->
+    <template id="portal_employee_attendance" name="Portal Employee Attendance" customize_show="True"
+              inherit_id="portal.portal_my_home" priority="100">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Attendance</t>
+                <t t-set="url" t-value="'/my/attendance'"/>
+            </t>
+        </xpath>
+    </template>
+    <template id="check_in_template">
+        <t t-call="portal.portal_layout" >
+            <div class="col-12 mt32 text-center attendance">
+<!--                <h3> My Attendance </h3>-->
+                <div class="row">
+                    <div class="mt32" > </div>
+                    <div class="Model">
+                        <t t-foreach="id" t-as="r" >
+                            <div class="card">
+                                <div class="back_bg">
+                                    <img class="profile_pic" t-att-src="profile" />
+                                </div>
+                                <div class="card-body">
+                                    <div class="mt32"> </div>
+                                    <h4><t t-esc="r.name" /></h4>
+                                    <p class="message"> </p>
+                                    <p>Working Hours <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label> </p>
+                                    <input type="hidden" id="csrf" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <input type="hidden" class="employee_id" t-att-value="r.id" />
+                                    <input type="hidden" id="dlytm" t-att-value="delay_times" />
+                                    <button type="button" class="fa fa-7x fa-sign-in btn-secondary check_in_btn" id="check_in" />
+                                    <button type="button" class="display_none fa fa-7x fa-sign-in btn-secondary check_Out_btn" id="check_out_frezz" />
+                                    <button type="button" class="display_none fa fa-7x fa-sign-in btn-secondary check_Out_btn" id="check_out" />
+                                    <p id="check_out_message" style="color: #FEC107;"> </p>
+                                    <h3 class="check"> Click to <b class="status"> check in</b></h3>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

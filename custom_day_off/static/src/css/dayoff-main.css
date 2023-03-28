@@ -1,0 +1,9 @@
+.ApprovalStatus{
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+.employeetable tr td{
+    vertical-align: middle;
+}
+

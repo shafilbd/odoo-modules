@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template inherit_id="portal.portal_layout" id="portal_layout_extra">
+        <xpath expr="//div[hasclass('o_portal_my_security')]" position="after">
+            <div class="o_portal_my_details mt-3">
+                <h4>Additional Info <a role="button" href="/my/eup" class="btn btn-sm btn-link"><i class="fa fa-pencil"/> Edit</a></h4>
+                <hr class="mt-1 mb-0"/>
+                <p>Hello</p>
+                <div t-field="user_id.partner_id" t-options='{"widget": "contact", "fields": ["display_name", "name", "email", "phone"]}'/>
+                <p><t t-esc="partners"/></p>
+<!--                <input type="text" name="name" t-att-value="partners"/>-->
+<!--                <ul>-->
+<!--                    <t t-foreach = "partners" t-as="data" >-->
+<!--                        <li> <t t-esc="data.users_id" /></li>-->
+<!--                        <li> <t t-esc="data.age_uid" /> </li>-->
+<!--                        <li> <t t-esc="data.multi_addresses_id" /></li>-->
+<!--                    </t>-->
+<!--                </ul>-->
+            </div>
+        </xpath>
+    </template>
+</odoo>

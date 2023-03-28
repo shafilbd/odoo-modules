@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="all_attendance_list_template">
+        <t t-call="portal.portal_layout" >
+            <div class="mt32">
+                <div class="h-32">
+                </div>
+                <table class="table table-sm employeetable">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Employee Name<`/th>
+                            <th> Check In </th>
+                            <th> Check Out </th>
+                            <th> Work Hours </th>
+                          </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="data" t-as="kp" >
+                            <tr>
+                                <td><t t-esc="kp.employee_id.name" /></td>
+                                <td><t t-esc="kp.check_in" /></td>
+                                <td><t t-esc="kp.check_out" /></td>
+                                <td class="working_hours"><t t-esc="'%.2f'% kp.worked_hours" /></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

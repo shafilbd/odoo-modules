@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="all_day_leave_list_template">
+        <t t-call="portal.portal_layout" >
+            <div class="mt32">
+                <div class="h-32">
+                    <a class="btn btn-primary" t-att-href="'/my/dayoff-application-2'">Create leave</a>
+                    <br></br>
+                </div>
+                <table class="table table-sm employeetable mt32">
+                    <thead class="thead-light">
+                        <tr>
+                            <th> Name</th>
+                            <th> Mode </th>
+                            <th> Off Type </th>
+                            <th> Description </th>
+                            <th> Start Date </th>
+                            <th> End Date </th>
+                            <th> Duration Days </th>
+                            <th> Added File </th>
+                            <th> Status </th>
+                            <th> Edit </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="details" t-as="kp" >
+                            <tr>
+                                <td><t t-esc="kp.employee_id.name" /></td>
+                                <td><span t-field="kp.holiday_type" /></td>
+                                <td><t t-esc="kp.holiday_status_id.name" /></td>
+                                <td><t t-esc="kp.name" /></td>
+                                <td><t t-esc="kp.date_from" /></td>
+                                <td><t t-esc="kp.date_to" /></td>
+                                <td class="text-center"><t t-esc="kp.number_of_days" /></td>
+                                <td><span class="ApprovalStatus" t-field="kp.state" /></td>
+<!--                            <img t-att-src="/web/image/ir.attachment/kp.supported_attachment_ids.id/datas"/>       -->
+                                <td class="text-center"> <a t-att-href="'/web/content/%i?download=true' % kp.supported_attachment_ids.id" ><i class="fa fa-download"></i></a> </td>
+                                <td><a class="btn btn-outline-success enable" t-att-href="'/my/edit/day-leave?leaveid=%i' % kp.id"><i class="fa fa-edit"></i> </a></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

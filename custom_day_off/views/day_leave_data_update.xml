@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="day_leave_data_update_template">
+        <t t-call="portal.portal_layout">
+            <div class="row mt-32">
+               <div class="col-12">
+                    <label> Update the Leave days data</label>
+               </div>
+               <div class="col-12">
+                  <form enctype="multipart/form-data" method="POST" action="/my/edit/day-leave-update">
+                      <t t-foreach="details" t-as="kp" >
+                          <div class="form-row">
+                              <input type="hidden" id="csrf" name="csrf_token" t-att-value="request.csrf_token()"/>
+                              <div class="form-group col-md-12">   <label for="inputEmail4">Select the reason of day off</label>
+                                  <select class="custom-select my-1 mr-sm-2" id="offtype" name="DayoffTypes">
+                                      <option t-att-value="kp.id"><t t-esc="kp.holiday_status_id.name"/></option>
+<!--                                      <t t-foreach="kp.holiday_status_id.name" t-as="ep" >
+                                          <option t-att-value="kp.id"><t t-esc="ep"/></option>
+                                      </t>-->
+                                  </select>
+                              </div>
+                              <div class="form-group col-md-12">
+                                  <label for="inputEmail4">Employee name</label>
+                                  <input type="text"  class="form-control" t-att-value="kp.employee_id.name" placeholder="Name" readonly="readonly"/>
+                                  <input type="hidden" id="employee_id" name="leaveid" t-att-value="kp.id" class="form-control" />
+                              </div>
+                              <div class="form-group col-md-6">
+                                  <label for="inputPassword4">Date From</label>
+                                  <input type="text" id="DateFrom" name="DayStart" t-att-value="kp.date_from" class="form-control" placeholder="MM-DD-YYYY" />
+                              </div>
+                              <div class="form-group col-md-6">
+                                  <label for="inputPassword4">To</label>
+                                  <input type="text" id="DateTo" name="DateEnd" t-att-value="kp.date_to" class="form-control" placeholder="MM-DD-YYYY" />
+                              </div>
+                                <div class="form-group col-md-12">
+                                    <label for="inputPassword4">Duration</label>
+                                    <input type="text" class="form-control" id="durations" t-att-value="kp.duration_display" placeholder="total Duration" readonly="readonly"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="exampleFormControlTextarea1">Description</label>
+                                    <textarea class="form-control" name="Descrip" id="description" rows="3" ><t t-esc="kp.name" /></textarea>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="exampleFormControlFile1">Example file input</label>
+                                    <input type="file" name="attachment" class="form-control-file" id="AdditionalFile" />
+                                    <p class="attachment"><t t-esc="kp.supported_attachment_ids.name" /> <a class="attachment_update" t-att-href="'/my/deleteattach?id=%i' % kp.supported_attachment_ids.id"><i class="fa fa-trash"></i></a></p>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                          </div>
+                      </t>
+                  </form>
+               </div>
+           </div>
+        </t>
+    </template>
+</odoo>

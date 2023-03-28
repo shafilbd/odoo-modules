@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="form_to_apply_leave_2">
+        <t t-call="portal.portal_layout">
+            <div class="row mt-32">
+               <div class="col-12">
+                    <label> Approve Status</label>
+               </div>
+               <div class="col-12">
+                  <form enctype="multipart/form-data" method="POST" action="/my/all-leave-lists-2">
+                      <div class="form-row">
+                          <input type="hidden" id="csrf" name="csrf_token" t-att-value="request.csrf_token()"/>
+                          <div class="form-group col-md-12">
+                              <label for="inputEmail4">Select the reason of day off</label>
+                              <select class="custom-select my-1 mr-sm-2" id="offtype" name="DayoffTypes">
+                                  <t t-foreach="leavetype" t-as="kp" >
+                                      <option t-att-value="kp.id"><t t-esc="kp.name"/></option>
+                                  </t>
+                              </select>
+                          </div>
+                          <div class="form-group col-md-12">
+                          <label for="inputEmail4">Employee name</label>
+                              <input type="text"  class="form-control" t-att-value="user.name" placeholder="Name" readonly="readonly"/>
+                              <input type="hidden" id="employee_id" name="EmployeeId" t-att-value="user.id" class="form-control" />
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label for="inputPassword4">Date From</label>
+                              <input type="text" id="DateFrom" name="DayStart" class="form-control" placeholder="MM-DD-YYYY" />
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label for="inputPassword4">To</label>
+                              <input type="text" id="DateTo" name="DateEnd" class="form-control" placeholder="MM-DD-YYYY" />
+                          </div>
+                          <div class="form-group col-md-12">
+                              <label for="inputPassword4">Duration</label>
+                              <input type="text" class="form-control" id="durations" name="totaldays" placeholder="total Duration" readonly="readonly"/>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <label for="exampleFormControlTextarea1">Description</label>
+                            <textarea class="form-control" name="Descrip" id="description" rows="3" ></textarea>
+                          </div>
+                          <div class="form-group col-md-12">
+                              <label for="exampleFormControlFile1">Example file input</label>
+                              <input type="file" name="attachment" class="form-control-file" id="AdditionalFile" />
+                          </div>
+                          <div class="form-group col-md-12">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                      </div>
+                  </form>
+               </div>
+           </div>
+        </t>
+    </template>
+</odoo>

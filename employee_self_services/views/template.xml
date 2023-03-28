@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template inherit_id="portal.portal_layout" id="portal_layout_extra">
+        <xpath expr="//div[hasclass('o_portal_my_security')]" position="after">
+            <div class="o_portal_my_details mt-3">
+                <h4>Additional Info <a role="button" href="/my/account" class="btn btn-sm btn-link"><i class="fa fa-pencil"/> Edit</a></h4>
+                <hr class="mt-1 mb-0"/>
+<!--                <div t-field="user_id.partner_id" t-options='{"widget": "contact", "fields": ["email", "phone"]}'/>-->
+                <t t-foreach = "additional" t-as="data" >
+                    <t t-esc="data.work_email" />
+                    <t t-esc="data.age_uid" />
+                    <t t-esc="data.multi_addresses_id" />
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>
+
